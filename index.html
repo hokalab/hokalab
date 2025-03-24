@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HōkaLabs - 駆け出しプログラマーのWebサービス工房</title>
+    <title>HōkaLabs - 初心者にやさしいWebサービス工房</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -15,62 +16,126 @@
             <div class="logo">
                 <h1>Hōka<span>Labs</span></h1>
             </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#services"><i class="fas fa-tools"></i> サービス</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> 概要</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> お問い合わせ</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h2>プログラミングの冒険で<br>便利なツールを作っています</h2>
-            <p>HōkaLabsは、駆け出しプログラマーが日々の学びを活かして開発する小さなWebサービス集です</p>
-            <a href="#services" class="btn">サービスを見る</a>
+            <h2>初心者でも簡単に使える<br>便利なWebツール集</h2>
+            <p>HōkaLabsは、プログラミング初心者のために作られた、シンプルで使いやすいWebサービス集です</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn primary-btn"><i class="fas fa-arrow-down"></i> サービスを見る</a>
+                <a href="#about" class="btn secondary-btn"><i class="fas fa-info-circle"></i> もっと詳しく</a>
+            </div>
         </div>
     </section>
 
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">サービス一覧</h2>
+            <h2 class="section-title">サービス一覧 <i class="fas fa-tools"></i></h2>
+            <p class="section-description">初心者でも簡単に使えるWebツールを提供しています</p>
+            
             <div class="service-grid">
                 <div class="service-card">
-                    <div class="service-icon">🔖</div>
+                    <div class="service-icon"><i class="fas fa-bookmark"></i></div>
                     <h3>はてなブックマーク RSS</h3>
-                    <p>はてなブックマークのホットエントリーから指定したブックマーク数以上の記事を取得し、RSS形式で提供するサービスです。IFTTTと連携して、新しい人気記事の通知を自動化できます。</p>
-                    <a href="https://hatena-bookmark-app.onrender.com/" target="_blank" class="service-btn">サービスを利用する</a>
+                    <div class="service-tag">初心者向け</div>
+                    <p>人気の記事を自動で集めて通知してくれるサービスです。新しい情報を見逃しません。</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 人気記事を自動収集</li>
+                        <li><i class="fas fa-check"></i> RSS形式で提供</li>
+                        <li><i class="fas fa-check"></i> 通知の自動化が可能</li>
+                    </ul>
+                    <a href="https://hatena-bookmark-app.onrender.com/" target="_blank" class="service-btn">サービスを利用する <i class="fas fa-external-link-alt"></i></a>
                 </div>
+                
                 <div class="service-card">
-                    <div class="service-icon">🧭</div>
+                    <div class="service-icon"><i class="fas fa-mountain"></i></div>
                     <h3>TrailSync</h3>
-                    <p>ヤマレコのGPXファイルをRunkeeper互換フォーマットに変換するツールです。複数日にわたるアクティビティデータの正確な変換に対応し、ハイキングやトレッキングのデータを簡単に他のサービスで活用できます。</p>
-                    <a href="https://trailsync-ziew.onrender.com/" target="_blank" class="service-btn">サービスを利用する</a>
+                    <div class="service-tag">簡単操作</div>
+                    <p>山登りのデータを他のアプリで使えるように変換するツールです。データの共有が簡単になります。</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> ヤマレコのデータを変換</li>
+                        <li><i class="fas fa-check"></i> Runkeeper形式に対応</li>
+                        <li><i class="fas fa-check"></i> 複数日のデータにも対応</li>
+                    </ul>
+                    <a href="https://trailsync-ziew.onrender.com/" target="_blank" class="service-btn">サービスを利用する <i class="fas fa-external-link-alt"></i></a>
                 </div>
+                
                 <!-- 将来的に追加されるサービス用のプレースホルダー -->
                 <div class="service-card coming-soon">
-                    <div class="service-icon">⏳</div>
+                    <div class="service-icon"><i class="fas fa-hourglass-half"></i></div>
                     <h3>Coming Soon</h3>
-                    <p>新しいサービスを開発中です。お楽しみに！</p>
+                    <div class="service-tag">開発中</div>
+                    <p>新しいサービスを開発中です。もうしばらくお待ちください！</p>
+                    <div class="coming-soon-label">
+                        <i class="fas fa-tools"></i> 開発中
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta">
+    <section id="about" class="about">
         <div class="container">
-            <h2>一緒に成長していきましょう</h2>
-            <p>プログラミングの学習過程で生まれたサービスを体験してみませんか？</p>
+            <h2 class="section-title">HōkaLabsについて <i class="fas fa-info-circle"></i></h2>
+            <p class="section-description">初心者プログラマーが学びながら作ったWebサービス集です</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3><i class="fas fa-lightbulb"></i> 私たちの目標</h3>
+                    <p>プログラミングを学びながら、実際に役立つツールを作っています。初心者の方でも簡単に使えるように、シンプルで分かりやすいデザインを心がけています。</p>
+                    
+                    <h3><i class="fas fa-users"></i> 対象ユーザー</h3>
+                    <p>技術に詳しくない方でも簡単に使えるWebサービスを提供しています。難しい設定は不要で、すぐに使い始めることができます。</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x300?text=HōkaLabs" alt="HōkaLabs イメージ">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2>お気軽にお試しください <i class="fas fa-hand-point-right"></i></h2>
+            <p>初心者の方でも簡単に使えるWebサービスを提供しています。ぜひお試しください！</p>
             <div class="cta-buttons">
-                <a href="https://hatena-bookmark-app.onrender.com/" target="_blank" class="btn">はてなブックマーク RSSを利用する</a>
-                <a href="https://trailsync-ziew.onrender.com/" target="_blank" class="btn">TrailSyncを利用する</a>
+                <a href="https://hatena-bookmark-app.onrender.com/" target="_blank" class="btn primary-btn"><i class="fas fa-bookmark"></i> はてなブックマーク RSSを利用する</a>
+                <a href="https://trailsync-ziew.onrender.com/" target="_blank" class="btn primary-btn"><i class="fas fa-mountain"></i> TrailSyncを利用する</a>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 HōkaLabs. All rights reserved.</p>
-            <div class="support-section">
-                <p>開発者をサポートする</p>
-                <a href="https://buymeacoffee.com/mump0nd" target="_blank" class="coffee-btn">
-                    <span>☕</span> Buy me a coffee
-                </a>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>HōkaLabs</h3>
+                    <p>初心者にやさしいWebサービス工房</p>
+                    <p>&copy; 2025 HōkaLabs. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>リンク</h4>
+                    <ul>
+                        <li><a href="#services"><i class="fas fa-tools"></i> サービス</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> 概要</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="support-section">
+                    <h4>開発者をサポートする</h4>
+                    <a href="https://buymeacoffee.com/mump0nd" target="_blank" class="coffee-btn">
+                        <i class="fas fa-coffee"></i> Buy me a coffee
+                    </a>
+                </div>
             </div>
         </div>
     </footer>

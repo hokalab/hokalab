@@ -1,23 +1,23 @@
 /* 基本設定 */
 :root {
-    /* 明るく親しみやすい色に変更 */
-    --primary-color: #4285f4;    /* Googleブルー */
-    --secondary-color: #34a853;  /* Googleグリーン */
-    --accent-color: #fbbc05;     /* Googleイエロー */
-    --danger-color: #ea4335;     /* Googleレッド */
+    /* カラフルで親しみやすい色に変更 */
+    --primary-color: #ff6b6b;    /* 明るい赤 */
+    --secondary-color: #4ecdc4;  /* ターコイズ */
+    --accent-color: #ffe66d;     /* 黄色 */
+    --highlight-color: #ff8e6e;  /* オレンジ */
     --coffee-color: #c0a16b;     /* コーヒー色 */
     --text-color: #333333;       /* ダークグレー */
     --light-text: #666666;       /* ミディアムグレー */
-    --bg-color: #ffffff;         /* 白 */
-    --light-bg: #f5f5f5;         /* 薄いグレー */
-    --border-radius: 12px;       /* 丸みを増やす */
+    --bg-color: #f9f7f1;         /* クリーム色（ノート風） */
+    --light-bg: #f0ece2;         /* 薄いベージュ */
+    --border-radius: 12px;       /* 丸み */
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
     
     /* サービスカードの色 */
-    --card1-color: #4285f4;      /* Googleブルー */
-    --card2-color: #34a853;      /* Googleグリーン */
-    --card3-color: #fbbc05;      /* Googleイエロー */
+    --card1-color: #ff6b6b;      /* 明るい赤 */
+    --card2-color: #4ecdc4;      /* ターコイズ */
+    --card3-color: #ffe66d;      /* 黄色 */
 }
 
 * {
@@ -27,20 +27,21 @@
 }
 
 body {
-    font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+    font-family: 'Kosugi Maru', 'Noto Sans JP', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--bg-color);
+    /* ノート風の背景 */
     background-image: 
-        radial-gradient(#e0e0e0 1px, transparent 1px),
-        radial-gradient(#f0f0f0 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-position: 0 0, 20px 20px;
+        linear-gradient(#f0ece2 1px, transparent 1px),
+        linear-gradient(90deg, #f0ece2 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0;
     background-attachment: fixed;
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Roboto', 'Poppins', 'Noto Sans JP', sans-serif;
+    font-family: 'Comic Neue', 'Kosugi Maru', 'Noto Sans JP', sans-serif;
     font-weight: 700;
     line-height: 1.2;
     color: var(--primary-color);
@@ -53,28 +54,90 @@ h1, h2, h3, h4 {
     padding: 0 20px;
 }
 
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
 .section-title {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-size: 2.5rem;
     color: var(--primary-color);
     position: relative;
-    padding-bottom: 1rem;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,5 C20,2 40,8 60,5 C80,2 100,8 100,5' stroke='%23ff6b6b' stroke-width='3' fill='none' /%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 100px 10px;
 }
 
 .section-title i {
     margin-left: 10px;
     color: var(--accent-color);
+    transform: rotate(5deg);
+    display: inline-block;
 }
 
 .section-description {
     text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: var(--light-text);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.handwritten-note {
+    font-family: 'Comic Neue', cursive;
+    color: var(--highlight-color);
+    font-size: 1.1rem;
+    transform: rotate(-2deg);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 230, 109, 0.2);
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* 勉強中バッジ */
+.learning-badge {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-weight: bold;
+    font-family: 'Comic Neue', cursive;
+    transform: rotate(5deg);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pencil-icon {
+    font-size: 1.2rem;
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
 }
 
 /* ヘッダー */
@@ -86,7 +149,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 3px solid var(--primary-color);
+    border-bottom: 3px dashed var(--primary-color);
 }
 
 header .container {
@@ -95,15 +158,30 @@ header .container {
     align-items: center;
 }
 
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
 .logo h1 {
     font-size: 2.2rem;
     color: var(--primary-color);
-    text-shadow: 1px 1px 0 rgba(66, 133, 244, 0.2);
+    text-shadow: 2px 2px 0 rgba(255, 107, 107, 0.2);
+    font-family: 'Comic Neue', 'Poppins', sans-serif;
+    transform: rotate(-2deg);
 }
 
 .logo span {
     color: var(--secondary-color);
     font-weight: 600;
+}
+
+.logo-subtitle {
+    font-family: 'Comic Neue', cursive;
+    color: var(--light-text);
+    font-size: 0.9rem;
+    margin-top: -5px;
+    transform: rotate(-2deg);
 }
 
 /* ナビゲーション */
@@ -121,11 +199,13 @@ header .container {
     padding: 0.5rem 1rem;
     border-radius: 30px;
     transition: var(--transition);
+    font-family: 'Kosugi Maru', sans-serif;
 }
 
 .main-nav a:hover {
     background-color: var(--light-bg);
     color: var(--primary-color);
+    transform: scale(1.05);
 }
 
 .main-nav i {
@@ -137,7 +217,7 @@ header .container {
 .hero {
     padding: 10rem 0 6rem;
     text-align: center;
-    background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -151,38 +231,90 @@ header .container {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-        radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-    background-size: 30px 30px;
-    background-position: 0 0, 15px 15px;
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
-.hero h2 {
-    font-size: 3rem;
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-note {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: left;
+    transform: rotate(-1deg);
+    position: relative;
+}
+
+.hero-note::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+
+.hero-note h2 {
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: white;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1;
+    color: var(--primary-color);
+    font-family: 'Comic Neue', 'Kosugi Maru', sans-serif;
+    line-height: 1.3;
 }
 
-.hero p {
-    font-size: 1.3rem;
+.hero-note p {
+    font-size: 1.2rem;
     margin-bottom: 2rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-    position: relative;
-    z-index: 1;
+    color: var(--text-color);
+    line-height: 1.7;
 }
+
+.hero-doodles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.doodle {
+    font-size: 3rem;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.doodle:nth-child(1) { animation-delay: 0s; transform: rotate(5deg); }
+.doodle:nth-child(2) { animation-delay: 0.5s; transform: rotate(-5deg); }
+.doodle:nth-child(3) { animation-delay: 1s; transform: rotate(10deg); }
+.doodle:nth-child(4) { animation-delay: 1.5s; transform: rotate(-10deg); }
 
 .hero-buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    position: relative;
-    z-index: 1;
+    margin-top: 2rem;
 }
 
 .btn {
@@ -198,15 +330,16 @@ header .container {
     position: relative;
     z-index: 1;
     font-size: 1.1rem;
+    font-family: 'Kosugi Maru', sans-serif;
 }
 
 .primary-btn {
-    background-color: var(--accent-color);
-    color: var(--text-color);
+    background-color: var(--primary-color);
+    color: white;
 }
 
 .primary-btn:hover {
-    background-color: #f9a602;
+    background-color: #ff5252;
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
@@ -240,7 +373,7 @@ header .container {
 }
 
 .service-card {
-    background-color: var(--bg-color);
+    background-color: white;
     padding: 2.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -252,7 +385,12 @@ header .container {
     position: relative;
     overflow: hidden;
     border: 2px solid #e0e0e0;
+    transform: rotate(var(--rotate, 0deg));
 }
+
+.service-card:nth-child(1) { --rotate: -1deg; }
+.service-card:nth-child(2) { --rotate: 1deg; }
+.service-card:nth-child(3) { --rotate: -1.5deg; }
 
 .service-card::before {
     content: "";
@@ -277,7 +415,7 @@ header .container {
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) rotate(var(--rotate, 0deg));
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     border-color: var(--primary-color);
 }
@@ -312,17 +450,17 @@ header .container {
 
 .service-card:nth-child(1) .service-icon {
     color: var(--card1-color);
-    background-color: rgba(66, 133, 244, 0.1);
+    background-color: rgba(255, 107, 107, 0.1);
 }
 
 .service-card:nth-child(2) .service-icon {
     color: var(--card2-color);
-    background-color: rgba(52, 168, 83, 0.1);
+    background-color: rgba(78, 205, 196, 0.1);
 }
 
 .service-card:nth-child(3) .service-icon {
     color: var(--card3-color);
-    background-color: rgba(251, 188, 5, 0.1);
+    background-color: rgba(255, 230, 109, 0.1);
 }
 
 .service-tag {
@@ -336,6 +474,8 @@ header .container {
     font-size: 0.8rem;
     font-weight: bold;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transform: rotate(3deg);
+    font-family: 'Comic Neue', 'Kosugi Maru', sans-serif;
 }
 
 .service-card h3 {
@@ -344,6 +484,7 @@ header .container {
     font-size: 1.5rem;
     position: relative;
     display: inline-block;
+    font-family: 'Comic Neue', 'Kosugi Maru', sans-serif;
 }
 
 .service-card:nth-child(1) h3 {
@@ -383,6 +524,17 @@ header .container {
     margin-right: 8px;
 }
 
+.difficulty-meter {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+
+.stars {
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
 .service-btn {
     display: inline-block;
     background-color: var(--primary-color);
@@ -394,6 +546,7 @@ header .container {
     transition: var(--transition);
     margin-top: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Kosugi Maru', sans-serif;
 }
 
 .service-card:nth-child(1) .service-btn {
@@ -418,17 +571,24 @@ header .container {
     position: relative;
 }
 
-.coming-soon-label {
+.sticky-note {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(5deg);
     background-color: var(--accent-color);
-    color: var(--text-color);
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    padding: 1rem;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Comic Neue', cursive;
     font-weight: bold;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    z-index: 2;
 }
 
 /* About セクション */
@@ -444,46 +604,109 @@ header .container {
     align-items: center;
 }
 
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+    position: relative;
+    transform: rotate(-2deg);
+}
+
+.about-image img {
+    max-width: 100%;
+    border: 10px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.polaroid-caption {
+    background-color: white;
+    padding: 1rem;
+    font-family: 'Comic Neue', cursive;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-top: -5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 .about-text {
     flex: 1;
     min-width: 300px;
 }
 
-.about-text h3 {
+.about-note {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transform: rotate(1deg);
+}
+
+.about-note::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+
+.about-note h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
+    font-family: 'Comic Neue', 'Kosugi Maru', sans-serif;
 }
 
-.about-text h3 i {
+.about-note h3 i {
     margin-right: 10px;
     color: var(--accent-color);
 }
 
-.about-text p {
+.about-note p {
     margin-bottom: 2rem;
     font-size: 1.1rem;
     color: var(--light-text);
     line-height: 1.8;
 }
 
-.about-image {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
+.learning-list {
+    list-style: none;
+    margin-bottom: 2rem;
 }
 
-.about-image img {
-    max-width: 100%;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+.learning-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.progress-bar {
+    display: inline-block;
+    width: 150px;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 1rem;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
 }
 
 /* CTA セクション */
 .cta {
     padding: 6rem 0;
     text-align: center;
-    background: linear-gradient(135deg, #34a853 0%, #4285f4 100%);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -497,10 +720,9 @@ header .container {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-        radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-    background-size: 30px 30px;
-    background-position: 0 0, 15px 15px;
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
 .cta h2 {
@@ -509,6 +731,7 @@ header .container {
     position: relative;
     z-index: 1;
     color: white;
+    font-family: 'Comic Neue', 'Kosugi Maru', sans-serif;
 }
 
 .cta p {
@@ -521,13 +744,30 @@ header .container {
     z-index: 1;
 }
 
+.cta-note {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    transform: rotate(-1deg);
+}
+
+.cta-note p {
+    color: var(--primary-color);
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
 .cta-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    position: relative;
-    z-index: 1;
 }
 
 .cta-buttons .btn {
@@ -558,10 +798,20 @@ footer {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     color: white;
+    font-family: 'Comic Neue', 'Poppins', sans-serif;
 }
 
 .footer-info p {
     margin-bottom: 0.5rem;
+}
+
+.footer-note {
+    font-family: 'Comic Neue', cursive;
+    font-style: italic;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .footer-links {
@@ -573,6 +823,7 @@ footer {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     color: white;
+    font-family: 'Comic Neue', 'Kosugi Maru', sans-serif;
 }
 
 .footer-links ul {
@@ -591,6 +842,8 @@ footer {
 
 .footer-links a:hover {
     color: var(--accent-color);
+    transform: translateX(5px);
+    display: inline-block;
 }
 
 .footer-links i {
@@ -607,6 +860,12 @@ footer {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     color: white;
+    font-family: 'Comic Neue', 'Kosugi Maru', sans-serif;
+}
+
+.support-section p {
+    margin-bottom: 1rem;
+    font-family: 'Comic Neue', cursive;
 }
 
 .coffee-btn {
@@ -620,7 +879,7 @@ footer {
     transition: var(--transition);
     border: none;
     cursor: pointer;
-    font-family: 'Roboto', 'Poppins', sans-serif;
+    font-family: 'Kosugi Maru', sans-serif;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -649,8 +908,8 @@ footer {
         padding-top: 12rem;
     }
     
-    .hero h2 {
-        font-size: 2.2rem;
+    .hero-note h2 {
+        font-size: 2rem;
     }
     
     .section-title {
@@ -683,6 +942,10 @@ footer {
     .about-content {
         flex-direction: column;
     }
+    
+    .learning-badge {
+        top: 70px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -692,81 +955,9 @@ footer {
         gap: 0.5rem;
     }
     
-    .hero h2 {
+    .hero-note h2 {
         font-size: 1.8rem;
     }
     
-    .hero p {
+    .hero-note p {
         font-size: 1rem;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 1rem;
-    }
-    
-    .coffee-btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .service-card {
-        padding: 1.5rem;
-    }
-    
-    .service-icon {
-        font-size: 2rem;
-        padding: 1rem;
-    }
-}
-
-/* アニメーション */
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.service-icon {
-    animation: float 3s ease-in-out infinite;
-}
-
-.service-card:nth-child(1) .service-icon {
-    animation-delay: 0s;
-}
-
-.service-card:nth-child(2) .service-icon {
-    animation-delay: 0.5s;
-}
-
-.service-card:nth-child(3) .service-icon {
-    animation-delay: 1s;
-}
-
-/* スクロールアニメーション用のスタイル */
-header.scrolled {
-    background-color: var(--bg-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.fade-element {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}

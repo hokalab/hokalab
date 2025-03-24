@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 要素のフェードインアニメーション
     setupFadeInAnimation();
+    
+    // 手書き風のコメントをランダムに表示
+    setupHandwrittenNotes();
+    
+    // 勉強中バッジの動き
+    setupLearningBadge();
 });
 
 // モバイルメニューの設定
@@ -34,41 +40,6 @@ function setupMobileMenu() {
     
     // ヘッダーにモバイルメニューボタンを追加
     header.querySelector('.container').appendChild(mobileMenuBtn);
-    
-    // モバイルメニューのスタイル
-    const style = document.createElement('style');
-    style.textContent = `
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .main-nav {
-                display: none;
-                width: 100%;
-                margin-top: 1rem;
-            }
-            
-            .main-nav.active {
-                display: block;
-            }
-            
-            header .container {
-                flex-wrap: wrap;
-            }
-        }
-    `;
-    document.head.appendChild(style);
     
     // モバイルメニューボタンのクリックイベント
     mobileMenuBtn.addEventListener('click', function() {
@@ -108,17 +79,22 @@ function setupSmoothScroll() {
                 const nav = document.querySelector('.main-nav');
                 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
                 
-                if (nav.classList.contains('active')) {
+                if (nav && nav.classList.contains('active')) {
                     nav.classList.remove('active');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    mobileMenuBtn.setAttribute('aria-label', 'メニューを開く');
+                    if (mobileMenuBtn) {
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        mobileMenuBtn.setAttribute('aria-label', 'メニューを開く');
+                    }
                 }
                 
                 const headerHeight = document.querySelector('header').offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                 
+                // ちょっとずれた位置にスクロール（手作り感を出すため）
+                const randomOffset = Math.floor(Math.random() * 20) - 10;
+                
                 window.scrollTo({
-                    top: targetPosition,
+                    top: targetPosition + randomOffset,
                     behavior: 'smooth'
                 });
             }
@@ -129,12 +105,16 @@ function setupSmoothScroll() {
 // フェードインアニメーションの設定
 function setupFadeInAnimation() {
     // アニメーション対象の要素
-    const fadeElements = document.querySelectorAll('.service-card, .about-content, .cta-buttons, .footer-content');
+    const fadeElements = document.querySelectorAll('.service-card, .about-content, .cta-note, .footer-content');
     
     // Intersection Observerの設定
     const fadeInObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // ランダムな遅延を追加（手作り感を出すため）
+                const delay = Math.random() * 0.5;
+                entry.target.style.transitionDelay = `${delay}s`;
+                
                 entry.target.classList.add('fade-in');
                 fadeInObserver.unobserve(entry.target);
             }
@@ -151,6 +131,78 @@ function setupFadeInAnimation() {
     });
 }
 
+// 手書き風のコメントをランダムに表示
+function setupHandwrittenNotes() {
+    const comments = [
+        "まだ勉強中です...",
+        "バグがあったらごめんなさい！",
+        "コードは日々改善中！",
+        "初心者ですが頑張ってます！",
+        "アドバイスください！"
+    ];
+    
+    // 手書きコメントを追加する場所
+    const serviceSection = document.querySelector('.services .section-header');
+    const aboutSection = document.querySelector('.about .section-header');
+    
+    if (serviceSection && !serviceSection.querySelector('.handwritten-note')) {
+        const randomComment = comments[Math.floor(Math.random() * comments.length)];
+        const noteElement = document.createElement('div');
+        noteElement.className = 'handwritten-note';
+        noteElement.textContent = randomComment;
+        
+        // ランダムな回転角度を設定
+        const rotation = Math.floor(Math.random() * 6) - 3;
+        noteElement.style.transform = `rotate(${rotation}deg)`;
+        
+        serviceSection.appendChild(noteElement);
+    }
+    
+    if (aboutSection && !aboutSection.querySelector('.handwritten-note')) {
+        const randomComment = comments[Math.floor(Math.random() * comments.length)];
+        const noteElement = document.createElement('div');
+        noteElement.className = 'handwritten-note';
+        noteElement.textContent = randomComment;
+        
+        // ランダムな回転角度を設定
+        const rotation = Math.floor(Math.random() * 6) - 3;
+        noteElement.style.transform = `rotate(${rotation}deg)`;
+        
+        aboutSection.appendChild(noteElement);
+    }
+}
+
+// 勉強中バッジの動き
+function setupLearningBadge() {
+    const badge = document.querySelector('.learning-badge');
+    if (!badge) return;
+    
+    // マウスが近づいたときに少し動く
+    document.addEventListener('mousemove', function(e) {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        
+        const badgeRect = badge.getBoundingClientRect();
+        const badgeCenterX = badgeRect.left + badgeRect.width / 2;
+        const badgeCenterY = badgeRect.top + badgeRect.height / 2;
+        
+        const distanceX = mouseX - badgeCenterX;
+        const distanceY = mouseY - badgeCenterY;
+        const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+        
+        // マウスが近い場合のみ反応
+        if (distance < 200) {
+            const moveX = distanceX * 0.05;
+            const moveY = distanceY * 0.05;
+            const rotation = (distanceX * 0.02) + 5; // 基本の回転角度は5度
+            
+            badge.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${rotation}deg)`;
+        } else {
+            badge.style.transform = 'rotate(5deg)';
+        }
+    });
+}
+
 // アクセシビリティのためのキーボードナビゲーション
 document.addEventListener('keydown', function(e) {
     // Escキーでモバイルメニューを閉じる
@@ -158,10 +210,12 @@ document.addEventListener('keydown', function(e) {
         const nav = document.querySelector('.main-nav');
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         
-        if (nav.classList.contains('active')) {
+        if (nav && nav.classList.contains('active')) {
             nav.classList.remove('active');
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            mobileMenuBtn.setAttribute('aria-label', 'メニューを開く');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-label', 'メニューを開く');
+            }
         }
     }
 });
@@ -170,17 +224,17 @@ document.addEventListener('keydown', function(e) {
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
     
-    // ページ読み込み完了時のスタイル
-    const style = document.createElement('style');
-    style.textContent = `
-        body {
-            opacity: 0;
-            transition: opacity 0.5s ease;
+    // ちょっとした「バグ」を演出（初心者感を出すため）
+    setTimeout(function() {
+        const doodles = document.querySelectorAll('.doodle');
+        if (doodles.length > 0) {
+            const randomDoodle = doodles[Math.floor(Math.random() * doodles.length)];
+            randomDoodle.style.animation = 'none';
+            
+            // 少し待ってから「修正」
+            setTimeout(function() {
+                randomDoodle.style.animation = 'float 3s ease-in-out infinite';
+            }, 2000);
         }
-        
-        body.loaded {
-            opacity: 1;
-        }
-    `;
-    document.head.appendChild(style);
+    }, 5000);
 });

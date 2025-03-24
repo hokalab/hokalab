@@ -1,0 +1,177 @@
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .main-nav ul {
+        gap: 1rem;
+    }
+    
+    .hero {
+        padding-top: 12rem;
+    }
+    
+    .hero-note h2 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+        padding: 2rem;
+    }
+    
+    .service-icon {
+        font-size: 2.5rem;
+        padding: 1.2rem;
+    }
+    
+    .hero-buttons, .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn, .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .learning-badge {
+        top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .hero-note h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-note p {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .coffee-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .service-icon {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+    
+    .about-note {
+        padding: 1.5rem;
+    }
+    
+    .about-note h3 {
+        font-size: 1.3rem;
+    }
+    
+    .about-note p {
+        font-size: 1rem;
+    }
+    
+    .learning-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .progress-bar {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-info, .footer-links, .support-section {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .learning-badge {
+        top: 60px;
+        right: 10px;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .pencil-icon {
+        font-size: 1rem;
+    }
+}
+
+/* モバイルメニュー */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+    
+    .main-nav {
+        display: none;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .main-nav.active {
+        display: block;
+    }
+    
+    header .container {
+        flex-wrap: wrap;
+    }
+}

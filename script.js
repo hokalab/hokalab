@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const style = document.createElement('style');
     style.textContent = `
         header.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(44, 62, 80, 0.95);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }

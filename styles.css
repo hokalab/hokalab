@@ -1,22 +1,22 @@
 /* 基本設定 */
 :root {
-    /* かわいいパステルカラーに変更 */
-    --primary-color: #ff85a2;    /* ピンク */
-    --secondary-color: #a2d2ff;  /* 水色 */
-    --accent-color: #ffc8dd;     /* 薄いピンク */
-    --coffee-color: #ffdd99;     /* 薄い黄色 */
-    --text-color: #5e5e5e;       /* 柔らかいグレー */
-    --light-text: #888;
-    --bg-color: #fff;
-    --light-bg: #f9f7fd;         /* 薄い紫がかった背景 */
-    --border-radius: 20px;       /* より丸みを増す */
-    --box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
-    --transition: all 0.4s ease;
+    /* 落ち着いたトーンに変更 */
+    --primary-color: #2c3e50;    /* ダークブルー */
+    --secondary-color: #34495e;  /* ミッドナイトブルー */
+    --accent-color: #7f8c8d;     /* グレー */
+    --coffee-color: #c0a16b;     /* コーヒー色 */
+    --text-color: #ecf0f1;       /* 明るいグレー */
+    --light-text: #bdc3c7;
+    --bg-color: #ecf0f1;
+    --light-bg: #bdc3c7;         /* ライトグレー */
+    --border-radius: 10px;       /* 控えめな丸み */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
     
     /* サービスカードの色 */
-    --card1-color: #a2d2ff;      /* 水色 */
-    --card2-color: #ffc8dd;      /* 薄いピンク */
-    --card3-color: #ffafcc;      /* 中間のピンク */
+    --card1-color: #34495e;      /* ミッドナイトブルー */
+    --card2-color: #7f8c8d;      /* グレー */
+    --card3-color: #95a5a6;      /* ライトグレー */
 }
 
 * {
@@ -26,20 +26,20 @@
 }
 
 body {
-    font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+    font-family: 'Roboto', 'Noto Sans JP', sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--bg-color);
     background-image: 
-        radial-gradient(#ffc8dd 1px, transparent 1px),
-        radial-gradient(#a2d2ff 1px, transparent 1px);
+        radial-gradient(#7f8c8d 1px, transparent 1px),
+        radial-gradient(#34495e 1px, transparent 1px);
     background-size: 40px 40px;
     background-position: 0 0, 20px 20px;
     background-attachment: fixed;
 }
 
 h1, h2, h3, h4 {
-    font-family: 'M PLUS Rounded 1c', 'Poppins', 'Noto Sans JP', sans-serif;
+    font-family: 'Roboto', 'Poppins', 'Noto Sans JP', sans-serif;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -75,7 +75,7 @@ h1, h2, h3, h4 {
 /* ヘッダー */
 header {
     padding: 1.5rem 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(44, 62, 80, 0.9);
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     position: fixed;
@@ -88,7 +88,7 @@ header {
 .logo h1 {
     font-size: 2.2rem;
     color: var(--primary-color);
-    text-shadow: 2px 2px 0 rgba(255, 200, 221, 0.5);
+    text-shadow: 2px 2px 0 rgba(44, 62, 80, 0.5);
 }
 
 .logo span {
@@ -100,7 +100,7 @@ header {
 .hero {
     padding: 10rem 0 6rem;
     text-align: center;
-    background: linear-gradient(135deg, #ffc8dd 0%, #a2d2ff 100%);
+    background: linear-gradient(135deg, #7f8c8d 0%, #34495e 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -123,7 +123,7 @@ header {
 .hero h2 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
-    color: #5e5e5e;
+    color: #ecf0f1;
     text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
     position: relative;
     z-index: 1;
@@ -135,7 +135,7 @@ header {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    color: #5e5e5e;
+    color: #ecf0f1;
     position: relative;
     z-index: 1;
 }
@@ -151,15 +151,15 @@ header {
     transition: var(--transition);
     border: none;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(255, 133, 162, 0.4);
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.4);
     position: relative;
     z-index: 1;
 }
 
 .btn:hover {
-    background-color: #ff6b8e;
+    background-color: #1a252f;
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(255, 133, 162, 0.5);
+    box-shadow: 0 8px 20px rgba(44, 62, 80, 0.5);
 }
 
 /* サービスセクション */
@@ -199,7 +199,7 @@ header {
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    border: 3px solid rgba(255, 200, 221, 0.3);
+    border: 3px solid rgba(127, 140, 141, 0.3);
 }
 
 .service-card::before {
@@ -227,7 +227,7 @@ header {
 .service-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    border-color: rgba(255, 200, 221, 0.6);
+    border-color: rgba(127, 140, 141, 0.6);
 }
 
 .service-icon {
@@ -247,17 +247,17 @@ header {
 
 .service-card:nth-child(1) .service-icon {
     color: var(--card1-color);
-    background-color: rgba(162, 210, 255, 0.2);
+    background-color: rgba(52, 73, 94, 0.2);
 }
 
 .service-card:nth-child(2) .service-icon {
     color: var(--card2-color);
-    background-color: rgba(255, 200, 221, 0.2);
+    background-color: rgba(127, 140, 141, 0.2);
 }
 
 .service-card:nth-child(3) .service-icon {
     color: var(--card3-color);
-    background-color: rgba(255, 175, 204, 0.2);
+    background-color: rgba(149, 165, 166, 0.2);
 }
 
 .service-card h3 {
@@ -327,17 +327,17 @@ header {
 
 .service-card:nth-child(1) .service-btn {
     background-color: var(--card1-color);
-    box-shadow: 0 4px 10px rgba(162, 210, 255, 0.5);
+    box-shadow: 0 4px 10px rgba(52, 73, 94, 0.5);
 }
 
 .service-card:nth-child(2) .service-btn {
     background-color: var(--card2-color);
-    box-shadow: 0 4px 10px rgba(255, 200, 221, 0.5);
+    box-shadow: 0 4px 10px rgba(127, 140, 141, 0.5);
 }
 
 .service-card:nth-child(3) .service-btn {
     background-color: var(--card3-color);
-    box-shadow: 0 4px 10px rgba(255, 175, 204, 0.5);
+    box-shadow: 0 4px 10px rgba(149, 165, 166, 0.5);
 }
 
 .service-btn:hover {
@@ -346,18 +346,18 @@ header {
 }
 
 .service-card:nth-child(1) .service-btn:hover {
-    background-color: #8bc5ff;
-    box-shadow: 0 6px 15px rgba(162, 210, 255, 0.6);
+    background-color: #2c3e50;
+    box-shadow: 0 6px 15px rgba(52, 73, 94, 0.6);
 }
 
 .service-card:nth-child(2) .service-btn:hover {
-    background-color: #ffb6d0;
-    box-shadow: 0 6px 15px rgba(255, 200, 221, 0.6);
+    background-color: #7f8c8d;
+    box-shadow: 0 6px 15px rgba(127, 140, 141, 0.6);
 }
 
 .service-card:nth-child(3) .service-btn:hover {
-    background-color: #ff9dbc;
-    box-shadow: 0 6px 15px rgba(255, 175, 204, 0.6);
+    background-color: #95a5a6;
+    box-shadow: 0 6px 15px rgba(149, 165, 166, 0.6);
 }
 
 .coming-soon {
@@ -371,20 +371,20 @@ header {
     top: 1rem;
     right: 1rem;
     background-color: var(--accent-color);
-    color: #5e5e5e;
+    color: #ecf0f1;
     padding: 0.4rem 1rem;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: bold;
-    box-shadow: 0 3px 8px rgba(255, 200, 221, 0.5);
+    box-shadow: 0 3px 8px rgba(127, 140, 141, 0.5);
 }
 
 /* CTA セクション */
 .cta {
     padding: 6rem 0;
     text-align: center;
-    background: linear-gradient(135deg, #a2d2ff 0%, #ffc8dd 100%);
-    color: #5e5e5e;
+    background: linear-gradient(135deg, #34495e 0%, #7f8c8d 100%);
+    color: #ecf0f1;
     position: relative;
     overflow: hidden;
 }
@@ -437,8 +437,8 @@ header {
 /* フッター */
 footer {
     padding: 2rem 0;
-    background-color: #ffc8dd;
-    color: #5e5e5e;
+    background-color: #7f8c8d;
+    color: #ecf0f1;
     text-align: center;
     position: relative;
 }
@@ -451,7 +451,7 @@ footer::before {
     width: 100%;
     height: 40px;
     background: 
-        radial-gradient(circle at 50% 0, #ffc8dd 20px, transparent 0);
+        radial-gradient(circle at 50% 0, #7f8c8d 20px, transparent 0);
     background-size: 40px 40px;
 }
 
@@ -469,7 +469,7 @@ footer::before {
 .coffee-btn {
     display: inline-block;
     background-color: var(--coffee-color);
-    color: #5e5e5e;
+    color: #ecf0f1;
     padding: 0.6rem 1.5rem;
     border-radius: 30px;
     text-decoration: none;
@@ -477,8 +477,8 @@ footer::before {
     transition: var(--transition);
     border: none;
     cursor: pointer;
-    font-family: 'M PLUS Rounded 1c', 'Poppins', sans-serif;
-    box-shadow: 0 4px 10px rgba(255, 221, 153, 0.5);
+    font-family: 'Roboto', 'Poppins', sans-serif;
+    box-shadow: 0 4px 10px rgba(192, 161, 107, 0.5);
 }
 
 .coffee-btn span {
@@ -486,9 +486,9 @@ footer::before {
 }
 
 .coffee-btn:hover {
-    background-color: #ffea80;
+    background-color: #b89b6f;
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 15px rgba(255, 221, 153, 0.6);
+    box-shadow: 0 6px 15px rgba(192, 161, 107, 0.6);
 }
 
 /* レスポンシブデザイン */
@@ -588,7 +588,7 @@ footer::before {
 
 /* スクロールアニメーション用のスタイル */
 header.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(44, 62, 80, 0.95);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
